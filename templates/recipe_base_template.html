@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Task List </title>
+    </head>
+
+    <body>
+        <header> <h1> Recipe Book </h1> </header>
+        <h2 href = "{{ link }}"> {{ name }} </h2>
+        <ul> 
+            {% for ingredient in ingredients %}
+            <li> {{ ingredient.name }}, {{ ingredient.quantity }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html> 
