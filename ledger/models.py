@@ -18,10 +18,6 @@ class Recipe(models.Model):
 
     def get_absolute_url(self):
         return reverse('ledger:recipe-detail', args=[self.pk])
-    
-
-    def get_ingredients(self):
-        Ingredient.objects.filter(recipe__recipe__name = self.name)
 
 
 class RecipeField(models.Model):
