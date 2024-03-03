@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Recipe Book </title>
-    </head>
-
-    <body>
-        <header> <h1> Recipe Book </h1> </header>
-        {% for recipe in recipes %}
-        <h2> <a href = "{{ recipe.link }}"> {{ recipe.name }} </a> </h2>
-        <ul> 
-            {% for ingredient in recipe.ingredients %}
-            <li> {{ ingredient.name }}, {{ ingredient.quantity }}</li>
-            {% endfor %}
-        </ul>
-        {% endfor %}
-    </body>
+<head>
+    <title>Recipe Book</title>
+</head>
+<body>
+    <header><h1>Recipe Book</h1></header>
+    <ul>
+    {% for recipe in object_list %} 
+        <li><a href="{{ recipe.get_absolute_url }}">{{ recipe }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
 </html>
