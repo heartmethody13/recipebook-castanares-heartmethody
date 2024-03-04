@@ -20,7 +20,7 @@ class Recipe(models.Model):
         return reverse('ledger:recipe-detail', args=[self.pk])
 
 
-class RecipeField(models.Model):
+class RecipeIngredient(models.Model):
     quantity = models.CharField(max_length=100)
     ingredient = models.ForeignKey(
         'Ingredient',

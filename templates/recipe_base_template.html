@@ -6,7 +6,7 @@
 
     <body>
         <header> <h1> Recipe Book </h1> </header>
-        <h2 href = "{{ recipe.get_absolute_url }}"> {{ recipe.name }} </h2>
+        <h2> {{ recipe.name }} </h2>
         <ul> 
             {% for ingredient in recipe.ingredients.all %}
             <li> {{ ingredient.ingredient.name }}, {{ ingredient.quantity }}</li>
