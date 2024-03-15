@@ -1,6 +1,22 @@
 from django.db import models
 from django.urls import reverse
 
+from django.contrib.auth.models import User
+from django.utils import timezone
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User, 
+        on_delete=models.CASCADE,
+        related_name='profile'
+    )
+    name = models.CharField(max_length=50)
+    short_bio = models.TextField()
+
+    def __str__(self) -> str:
+        return self.name
+
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
@@ -11,6 +27,14 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
+    author = models.ForeignKey(
+        Profile,
+        null=True,
+        on_delete=models.CASCADE,
+        related_name='recipe'
+    )
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
+    updated_on = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self) -> str:
         return self.name
