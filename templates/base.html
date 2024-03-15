@@ -3,6 +3,7 @@
 <head>
     <title>Recipe Book</title>
 </head>
+
 <body>
     {% if request.user.is_authenticated %}
 
@@ -19,7 +20,6 @@
     <a href="{% url 'login' %}">Login</a>
     
     {% endif %}
-    </header>
     <hr />
     {% block content %}{% endblock %}
 </body>
