@@ -6,19 +6,21 @@
 
 <body>
     {% if request.user.is_authenticated %}
-
     <header style = "display: flex;"> 
-        <h2 style = "margin-right: auto;"> Recipe Book </h2> 
+        <h2 style = "margin-right: auto; margin-left: 20px;"> Recipe Book </h2> 
         <h2> Hello, {{ request.user.username }} </h2> 
         <form action = "{% url 'logout' %}" method = "POST">
                 {% csrf_token %}
-                <button type ="submit" style= "margin-left: 20px; margin-top: 25px;"> LOG OUT </button>
+                <button type ="submit" style= "margin-left: 20px; margin-top: 25px; margin-right: 20px;"> LOG OUT </button>
         </form>
     </header>
     <hr />
 
     {% else %}
-    <h2> <a href="{% url 'login' %}">Login</a> </h2>
+    <header style = "display: flex;"> 
+        <h2 style = "margin-right: auto; margin-left: 20px;"> Recipe Book </h2>
+        <h2 style= "margin-right: 20px;"> <a href="{% url 'login' %}">Login</a> </h2>
+    </header>
     {% endif %}
 
     {% if request.user.is_authenticated %}
