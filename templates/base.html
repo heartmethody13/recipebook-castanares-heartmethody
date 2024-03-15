@@ -15,12 +15,14 @@
                 <button type ="submit" style= "margin-left: 20px; margin-top: 25px;"> LOG OUT </button>
         </form>
     </header>
-      
-    {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    
-    {% endif %}
     <hr />
-    {% block content %}{% endblock %}
+
+    {% else %}
+    <h2> <a href="{% url 'login' %}">Login</a> </h2>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        {% block content %}{% endblock %}
+    {% endif %}
 </body>
 </html>
