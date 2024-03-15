@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinLengthValidator
 
 
 class Profile(models.Model):
@@ -10,7 +11,9 @@ class Profile(models.Model):
         related_name='profile'
     )
     name = models.CharField(max_length=50)
-    short_bio = models.TextField()
+    short_bio = models.TextField(
+        validators=[MinLengthValidator(256)]
+    )
 
     def __str__(self) -> str:
         return self.name
